@@ -9,8 +9,9 @@ class Tilemap {
         this.southeast = [];
     }
 
-    put(x, y, tile) {
+    put(x, y) {
         let quadrant = this.getQuadrant(x, y);
+        let tile = new Tile(x, y);
         x = abs(x); y = abs(y);
         if (!quadrant[y])
             quadrant[y] = [];
@@ -33,9 +34,9 @@ class Tilemap {
     }
 
     *[Symbol.iterator]() {
-        for (let tile of this.northeast) yield tile;
-        for (let tile of this.northwest) yield tile;
-        for (let tile of this.southwest) yield tile;
-        for (let tile of this.southeast) yield tile;
+        for (let row of this.northeast) if (row != undefined) for (let tile of row) if (tile != undefined) yield tile;
+        for (let row of this.northwest) if (row != undefined) for (let tile of row) if (tile != undefined) yield tile;
+        for (let row of this.southwest) if (row != undefined) for (let tile of row) if (tile != undefined) yield tile;
+        for (let row of this.southeast) if (row != undefined) for (let tile of row) if (tile != undefined) yield tile;
     }
 }
