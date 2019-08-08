@@ -1,7 +1,15 @@
 from flask import Flask
 import flask
+import os.path
+from os import path
 
-app = Flask(__name__, template_folder = "../frontend/templates")
+iphost = "192.168.8.24"
+ipport = 8080
+
+if path.isfile("config.py"):
+    from config import *
+
+app = Flask(__name__, root_path = "../frontend")
 
 @app.route("/")
 def hello_world():
@@ -13,4 +21,4 @@ def run_template():
     return flask.render_template("index.html")
 
 if __name__ == "__main__":
-    app.run(host = "192.168.8.24", debug = True, port = 8080)
+    app.run(host = iphost, debug = True, port = ipport)
