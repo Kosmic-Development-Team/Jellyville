@@ -1,5 +1,3 @@
-"use strict";
-
 class Tilemap {
 
     constructor() {
@@ -9,9 +7,9 @@ class Tilemap {
         this.southeast = [];
     }
 
-    put(x, y) {
+    put(x, y, sprite, solid) {
         let quadrant = this.getQuadrant(x, y);
-        let tile = new Tile(x, y);
+        let tile = new Tile(x, y, sprite, solid);
         x = abs(x); y = abs(y);
         if (!quadrant[y])
             quadrant[y] = [];
