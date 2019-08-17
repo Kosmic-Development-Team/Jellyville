@@ -31,7 +31,8 @@ class Player {
 
     move(x, y) {
         let groundtile = groundtiles.get(this.x+x, this.y+y);
-        if (this.framesleft <= 0 && groundtile && !groundtile.solid && (!decorationtiles || !decorationtiles.solid)) { 
+        let decorationtile = decorationtiles.get(this.x+x, this.y+y);
+        if (this.framesleft <= 0 && groundtile && !groundtile.solid && (!decorationtile || !decorationtile.solid)) { 
             this.framesleft = MOVE_FRAMES;
             this.nextmovex = x / (MOVE_FRAMES * 1.0);
             this.nextmovey = y / (MOVE_FRAMES * 1.0);
