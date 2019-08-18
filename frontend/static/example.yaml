@@ -1,0 +1,74 @@
+root: assets/sprites
+sprites:
+    - grass:
+        folder: grass_tiles
+        images:
+            - grass.png
+    - water:
+        animation_type: static
+        images:
+            - water1.png         
+            - water2.png         
+            - water3.png         
+    - player:
+        folder: player
+        animation_type: person
+        images:
+            ne:
+                - player_ne1.png
+                - player_ne2.png
+                - ...
+            nw: ...
+            ...
+
+animations:
+    - static
+    - directional:
+        - ne
+        - nw
+        - sw
+        - se
+    - person:
+        - ne # Idle
+        - se
+        - sw
+        - nw
+        - ne_walking # Walking
+        - nw_walking
+        - sw_walking
+        - se_walking
+        - ne_mouth # Note: mouth sprites are overlays
+        - nw_mouth
+        - sw_mouth
+        - se_mouth
+        - ne_mouth_walking
+        - nw_mouth_walking
+        - sw_mouth_walking
+        - se_mouth_walking
+        - ne_mouth_talking
+        - nw_mouth_talking
+        - sw_mouth_talking
+        - se_mouth_talking
+        - ne_mouth_talking_walking
+        - nw_mouth_talking_walking
+        - sw_mouth_talking_walking
+        - se_mouth_talking_walking
+
+
+
+
+===============
+root: the root folder for sprite related assets
+sprites: list of sprites
+animations: list of animations
+
+sprites > $sprite:
+    folder: (default: $sprite) the folder with this sprite's assets
+    images: list of image paths, starting from folder
+    animation_type: (default: static) animation type from animations
+
+animations > $animation:
+    (empty)
+        OR
+    list of image states
+
